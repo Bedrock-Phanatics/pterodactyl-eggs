@@ -125,7 +125,7 @@ Linux x86_64 only, as Bifrost is.
 1. Import `bifrost-pterodactyl-egg.json` under **Nests → Import Egg**.
 2. Create a server with at least 2 GiB of disk for the temporary build. The installer gets the server's memory or
    Wings' installer limit (1 GiB by default), whichever is larger; 1 GiB is enough.
-3. Set **Bifrost Version** to a tag or commit for production. `main` is the default.
+3. Set **Bifrost Version** to a tag or full 40-character commit hash for production. `main` is the default.
 4. Wait for the install (several minutes), then start the server.
 
 The installer runs in `debian:trixie-slim`, the same Debian release as the runtime image, so the native library
@@ -147,8 +147,8 @@ which Bifrost handles by shutting down gracefully.
 
 ### Updating
 
-Change **Bifrost Version** if needed and **Reinstall**. Reinstalling only replaces `bifrost/` and
-`config/bifrost.example.toml`. It never touches `config/bifrost.toml`, `plugins/`, `bifrost-identity.der` or
+Change **Bifrost Version** if needed and **Reinstall**. Reinstalling only replaces `bifrost/`,
+`config/bifrost.example.toml` and `minecraft-keys.json`. It never touches `config/bifrost.toml`, `plugins/`, `bifrost-identity.der` or
 `bifrost-proxy.key`. Back them up anyway.
 
 ### Configuration
@@ -170,8 +170,8 @@ managed sessions; backends must trust proxy key MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE
 #### Microsoft signing keys
 
 `[auth] mode = "verify"` needs `minecraft-keys.json`. The installer downloads it, and with **Refresh Xbox Keys**
-on (default) every start downloads it again, replacing the file only when the download succeeds and looks like a
-key set. Otherwise the saved copy is used. Microsoft rotates the keys, so restart now and then (daily is plenty).
+set to `1` (default) every start downloads it again, replacing the file only when the download succeeds and starts
+like Microsoft's key set (`{"keys":[`). Otherwise the saved copy is used. Microsoft rotates the keys, so restart now and then (daily is plenty).
 If you set a different `keys_file`, refresh it yourself.
 
 #### Plugins
