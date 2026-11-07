@@ -234,3 +234,9 @@ allocations for Quark.
 - Not yet run on a live Panel/Wings: real player joins through Docker NAT, STUN and `udp_mux`, and Bifrost-to-Quark
   over the Wings network. Upstream also lists no real Bedrock client join yet ([known issues](https://github.com/TrixNEW/Bifrost/blob/main/docs/known-issues.md)).
 - ARM64 isn't supported.
+
+## Checks
+
+On Linux with Python 3.11+, Bash and ShellCheck installed, run `python3 tests/check_eggs.py`.
+The checks validate both eggs and exercise installer failure paths with mocked downloads and builds.
+Set `QUARK_TEST_PHP` to a PHP 8.4 executable to also check extension paths across the install and runtime mounts.
