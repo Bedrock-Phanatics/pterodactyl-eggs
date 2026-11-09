@@ -30,11 +30,7 @@ The egg uses the custom PHP 8.4 PM5 binaries maintained by Bedrock-Phanatics:
 
 [Bedrock-Phanatics/PHP-Binaries](https://github.com/Bedrock-Phanatics/PHP-Binaries)
 
-Specifically:
-
-```text
-pm5-php-8.4-latest
-```
+Specifically the `pm5-php-8.4-latest` release, using the `-hosting` Linux archive that does not rely on symbolic links. The runtime's extension versions must satisfy the `ext-*` requirements in the Quark `composer.json` for the ref you build, or the build stops at Composer.
 
 ### Installation
 
@@ -52,24 +48,30 @@ Nests → Import Egg
 
 The installation script will automatically:
 
-* Download the required PHP 8.4 PM5 runtime
+* Download the PHP 8.4 PM5 runtime and verify it against the release's `SHA256SUMS`
 * Configure the PHP extension directory
 * Download Composer
-* Clone the latest Quark `main` branch
-* Build the Quark server PHAR
-* Create the required server directories and files
+* Fetch the `QUARK_REF` branch, tag or commit (default `main`) and build `Quark.phar`
+
+Everything is built in a work directory first, so a failed reinstall keeps the previous runtime and `Quark.phar`.
+
+The `QUARK_REF` variable selects what to build. Pin a release tag or commit in production.
+
+Quark creates its own `config/`, `data/` and `plugins/` layout on first start. Do not pre-create `config/` or `plugins/`: Quark treats them as an unversioned legacy layout and refuses to start.
 
 ### Startup
 
 Quark is started using:
 
 ```bash
-./bin/php7/bin/php ./PocketMine-MP.phar --no-wizard
+./bin/php7/bin/php ./Quark.phar --no-wizard --server-port={{SERVER_PORT}} --settings.enable-dev-builds=true
 ```
+
+The port comes from the primary allocation. Branch builds report themselves as development builds, which Quark refuses to run without `--settings.enable-dev-builds=true`. Drop the flag once you build a release tag.
 
 ### Updating Quark
 
-Reinstalling the server through Pterodactyl will fetch and build the latest version of the Quark `main` branch.
+Reinstalling the server through Pterodactyl fetches and builds the current `QUARK_REF`.
 
 Back up your server data before reinstalling.
 

@@ -27,7 +27,7 @@ with tempfile.TemporaryDirectory() as temporary:
     script = eggs["quark-pterodactyl-egg"]["scripts"]["installation"]["script"]
     script = script.split('echo "Configuring PHP extension directory..."')[1]
     script = script.split('echo "Installing Composer..."')[0]
-    script = script.replace("export QUARK_SERVER_ROOT=/mnt/server", 'export QUARK_SERVER_ROOT="$PWD"')
+    script = 'fail() { exit 1; }; work="$PWD"\n' + script
     for contents in ("", 'extension_dir="old/path"\n'):
         ini.write_text(contents)
         subprocess.run(["bash", "-euc", script], cwd=server, check=True)
