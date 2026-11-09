@@ -55,7 +55,7 @@ The installation script will automatically:
 * Download the required PHP 8.4 PM5 runtime
 * Configure the PHP extension directory
 * Download Composer
-* Clone the latest Quark `stable` branch
+* Clone the latest Quark `main` branch
 * Build the Quark server PHAR
 * Create the required server directories and files
 
@@ -69,7 +69,7 @@ Quark is started using:
 
 ### Updating Quark
 
-Reinstalling the server through Pterodactyl will fetch and build the latest version of the Quark `stable` branch.
+Reinstalling the server through Pterodactyl will fetch and build the latest version of the Quark `main` branch.
 
 Back up your server data before reinstalling.
 
