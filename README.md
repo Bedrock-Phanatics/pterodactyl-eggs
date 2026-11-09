@@ -30,7 +30,7 @@ The egg uses the custom PHP 8.4 PM5 binaries maintained by Bedrock-Phanatics:
 
 [Bedrock-Phanatics/PHP-Binaries](https://github.com/Bedrock-Phanatics/PHP-Binaries)
 
-Specifically the `pm5-php-8.4-latest` release, using the `-hosting` Linux archive that does not rely on symbolic links. The runtime's extension versions must satisfy the `ext-*` requirements in the Quark `composer.json` for the ref you build, or the build stops at Composer.
+Specifically the `qrk6-php-8.4-latest` release, using the `-hosting` Linux archive that does not rely on symbolic links. The runtime's extension versions must satisfy the `ext-*` requirements in the Quark `composer.json` for the ref you build, or the build stops at Composer.
 
 ### Installation
 
