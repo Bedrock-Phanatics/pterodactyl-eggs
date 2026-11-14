@@ -127,7 +127,7 @@ Linux x86_64 only, as Bifrost is.
 1. Import `bifrost-pterodactyl-egg.json` under **Nests → Import Egg**.
 2. Create a server with at least 2 GiB of disk for the temporary build. The installer gets the server's memory or
    Wings' installer limit (1 GiB by default), whichever is larger; 1 GiB is enough.
-3. Set **Bifrost Version** to a tag or full 40-character commit hash for production. `main` is the default.
+3. Set **Bifrost Version** to `latest` (newest GitHub release), a tag, or a full 40-character commit hash for production. `main` is the default.
 4. Wait for the install (several minutes), then start the server.
 
 The installer runs in `debian:trixie-slim`, the same Debian release as the runtime image, so the native library
