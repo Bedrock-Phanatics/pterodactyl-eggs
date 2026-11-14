@@ -6,7 +6,7 @@
     },
     "exported_at": "2026-11-03T00:00:00+00:00",
     "name": "Bifrost",
-    "author": "Bedrock-Phanatics@email.com",
+    "author": "trix@noreply.com",
     "description": "Bifrost - high-performance Minecraft: Bedrock NetherNet proxy written in Zig. Builds Bifrost and its patched libdatachannel from source during installation. Linux x86_64 only.",
     "features": [],
     "docker_images": {
