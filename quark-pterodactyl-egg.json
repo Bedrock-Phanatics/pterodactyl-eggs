@@ -6,7 +6,7 @@
     },
     "exported_at": "2025-04-20T21:46:27+00:00",
     "name": "Quark",
-    "author": "Bedrock-Phanatics@email.com",
+    "author": "trix@noreply.com",
     "description": "Quark - high-performance Minecraft: Bedrock server software derived from PocketMine-MP and Axolotl. PM5 / PHP 8.4 / Linux x86_64 only. Installs the Bedrock-Phanatics PHP 8.4 runtime and builds Quark from the chosen branch, tag or commit.",
     "features": [],
     "docker_images": {
