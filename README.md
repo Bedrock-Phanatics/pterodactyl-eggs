@@ -147,6 +147,9 @@ Startup runs `./bifrost/bin/bifrost` directly with `LD_LIBRARY_PATH=/home/contai
 compiled or downloaded at startup apart from the optional key refresh below. The stop command sends `SIGINT`,
 which Bifrost handles by shutting down gracefully.
 
+From 2.0.0-rc.14 the console takes commands: `status`, `players`, `find <player>`, `send <player> <backend>`,
+`kick <player> [reason]`, `drain <backend>`, `undrain <backend>`, `log <level>` and `stop`.
+
 ### Updating
 
 Change **Bifrost Version** if needed and **Reinstall**. Reinstalling only replaces `bifrost/`,
@@ -173,8 +176,9 @@ managed sessions; backends must trust proxy key MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE
 
 `[auth] mode = "verify"` needs `minecraft-keys.json`. The installer downloads it, and with **Refresh Xbox Keys**
 set to `1` (default) every start downloads it again, replacing the file only when the download succeeds and starts
-like Microsoft's key set (`{"keys":[`). Otherwise the saved copy is used. Microsoft rotates the keys, so restart now and then (daily is plenty).
-If you set a different `keys_file`, refresh it yourself.
+like Microsoft's key set (`{"keys":[`). Otherwise the saved copy is used. Microsoft rotates the keys: Bifrost
+2.0.0-rc.14 and newer download them again every 12 hours (`[auth] refresh_hours`) and reload the file when it
+changes, so no restart is needed. Older builds need a restart now and then (daily is plenty).
 
 #### Plugins
 
